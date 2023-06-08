@@ -1,6 +1,6 @@
 import Foundation
 
-struct Product: Codable {
+public struct Product: Codable {
     let name, style, codeColor, colorSlug: String
     let color: String
     let onSale: Bool
@@ -21,7 +21,7 @@ struct Product: Codable {
     }
 }
 
-struct Size: Codable {
+public struct Size: Codable {
     let available: Bool
     let size, sku: String
 }
