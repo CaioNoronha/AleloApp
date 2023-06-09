@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		05F4046F804F5E4C7D0D579C /* Pods_AleloApp_AleloAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA313FF567840EFD54752B8 /* Pods_AleloApp_AleloAppUITests.framework */; };
 		243BAC3E424817290147ACF7 /* Pods_AleloAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36FEB6EC9D2D6EA487B6FBFE /* Pods_AleloAppTests.framework */; };
+		303FFFBB2A317C5F002556EB /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303FFFBA2A317C5F002556EB /* HomePresenter.swift */; };
+		303FFFBD2A317EC9002556EB /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303FFFBC2A317EC9002556EB /* HomeRouter.swift */; };
 		30BB27002A3164E4002B0090 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BB26FF2A3164E4002B0090 /* NetworkManager.swift */; };
 		30C372FF2A31087F005E0973 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C372FE2A31087F005E0973 /* AppDelegate.swift */; };
 		30C373012A31087F005E0973 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C373002A31087F005E0973 /* SceneDelegate.swift */; };
@@ -21,9 +23,7 @@
 		30C373362A310B49005E0973 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C373352A310B49005E0973 /* DesignSystem.swift */; };
 		30C373382A310D66005E0973 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C373372A310D66005E0973 /* HomeView.swift */; };
 		30C3733A2A310DDA005E0973 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C373392A310DDA005E0973 /* HomeCell.swift */; };
-		30C3733D2A310DFF005E0973 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3733C2A310DFF005E0973 /* FilterCell.swift */; };
-		30C3733F2A310E2E005E0973 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3733E2A310E2E005E0973 /* ItemCell.swift */; };
-		30C373422A3110B6005E0973 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C373412A3110B6005E0973 /* ProductModel.swift */; };
+		30C373422A3110B6005E0973 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C373412A3110B6005E0973 /* Product.swift */; };
 		30C373442A3111DA005E0973 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C373432A3111DA005E0973 /* HomeInteractor.swift */; };
 		30C373462A3113BB005E0973 /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C373452A3113BB005E0973 /* HomeWorker.swift */; };
 		D48A6C1AAAC7E31A4E6B8F60 /* Pods_AleloApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8690F49958E8D18608B86A /* Pods_AleloApp.framework */; };
@@ -50,6 +50,8 @@
 		05B03FAB6F6665CF8C9423DE /* Pods-AleloApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AleloApp.release.xcconfig"; path = "Target Support Files/Pods-AleloApp/Pods-AleloApp.release.xcconfig"; sourceTree = "<group>"; };
 		08FCA291172A351ECD8EBF51 /* Pods-AleloApp-AleloAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AleloApp-AleloAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-AleloApp-AleloAppUITests/Pods-AleloApp-AleloAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		16DE2E5EBF4A8AF6572D1D94 /* Pods-AleloApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AleloApp.debug.xcconfig"; path = "Target Support Files/Pods-AleloApp/Pods-AleloApp.debug.xcconfig"; sourceTree = "<group>"; };
+		303FFFBA2A317C5F002556EB /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		303FFFBC2A317EC9002556EB /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		30BB26FF2A3164E4002B0090 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		30C372FB2A31087F005E0973 /* AleloApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AleloApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30C372FE2A31087F005E0973 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,9 +68,7 @@
 		30C373352A310B49005E0973 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 		30C373372A310D66005E0973 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		30C373392A310DDA005E0973 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
-		30C3733C2A310DFF005E0973 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
-		30C3733E2A310E2E005E0973 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
-		30C373412A3110B6005E0973 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		30C373412A3110B6005E0973 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		30C373432A3111DA005E0973 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		30C373452A3113BB005E0973 /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
 		36FEB6EC9D2D6EA487B6FBFE /* Pods_AleloAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AleloAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +135,7 @@
 				30C373302A3108D7005E0973 /* Kart */,
 				30C3732F2A3108C1005E0973 /* Product */,
 				30C3732E2A3108A9005E0973 /* Home */,
+				30BB26FF2A3164E4002B0090 /* NetworkManager.swift */,
 				30C373322A310A67005E0973 /* SupportFiles */,
 			);
 			path = AleloApp;
@@ -160,13 +161,14 @@
 		30C3732E2A3108A9005E0973 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				30C373402A311086005E0973 /* Model */,
+				30C373402A311086005E0973 /* Models */,
 				30C3733B2A310DEC005E0973 /* Cells */,
 				30C373022A31087F005E0973 /* HomeViewController.swift */,
 				30C373372A310D66005E0973 /* HomeView.swift */,
 				30C373432A3111DA005E0973 /* HomeInteractor.swift */,
 				30C373452A3113BB005E0973 /* HomeWorker.swift */,
-				30BB26FF2A3164E4002B0090 /* NetworkManager.swift */,
+				303FFFBA2A317C5F002556EB /* HomePresenter.swift */,
+				303FFFBC2A317EC9002556EB /* HomeRouter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -210,18 +212,16 @@
 			isa = PBXGroup;
 			children = (
 				30C373392A310DDA005E0973 /* HomeCell.swift */,
-				30C3733C2A310DFF005E0973 /* FilterCell.swift */,
-				30C3733E2A310E2E005E0973 /* ItemCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		30C373402A311086005E0973 /* Model */ = {
+		30C373402A311086005E0973 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				30C373412A3110B6005E0973 /* ProductModel.swift */,
+				30C373412A3110B6005E0973 /* Product.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		451CFAC5169209B4A65A6698 /* Frameworks */ = {
@@ -487,16 +487,16 @@
 				30BB27002A3164E4002B0090 /* NetworkManager.swift in Sources */,
 				30C373032A31087F005E0973 /* HomeViewController.swift in Sources */,
 				30C373442A3111DA005E0973 /* HomeInteractor.swift in Sources */,
-				30C3733D2A310DFF005E0973 /* FilterCell.swift in Sources */,
-				30C3733F2A310E2E005E0973 /* ItemCell.swift in Sources */,
+				303FFFBD2A317EC9002556EB /* HomeRouter.swift in Sources */,
 				30C3733A2A310DDA005E0973 /* HomeCell.swift in Sources */,
 				30C373362A310B49005E0973 /* DesignSystem.swift in Sources */,
+				303FFFBB2A317C5F002556EB /* HomePresenter.swift in Sources */,
 				30C372FF2A31087F005E0973 /* AppDelegate.swift in Sources */,
 				30C373382A310D66005E0973 /* HomeView.swift in Sources */,
 				30C373012A31087F005E0973 /* SceneDelegate.swift in Sources */,
 				30C373342A310B20005E0973 /* ViewCode.swift in Sources */,
 				30C373462A3113BB005E0973 /* HomeWorker.swift in Sources */,
-				30C373422A3110B6005E0973 /* ProductModel.swift in Sources */,
+				30C373422A3110B6005E0973 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

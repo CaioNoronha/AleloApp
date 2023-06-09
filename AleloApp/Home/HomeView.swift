@@ -7,9 +7,9 @@
 import Cartography
 import UIKit
 
-public typealias ViewOwner = UITableViewDelegate & UICollectionViewDelegate & UITableViewDataSource & UICollectionViewDataSource
+public typealias ViewOwner = UICollectionViewDelegate & UICollectionViewDataSource
 
-final class HomeView: UIView, ViewCode {
+public final class HomeView: UIView, ViewCode {
    
     //MARK: - Attributes
     
@@ -22,27 +22,23 @@ final class HomeView: UIView, ViewCode {
         return title
     }()
     
-    private lazy var filterCarousel: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-                
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(FilterCell.self, forCellWithReuseIdentifier: "FilterCell")
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = .clear
-        
-        return collectionView
+    private lazy var saleButton: UIButton = {
+       let button = UIButton()
+        let image = UIImage(systemName:"pencil")
+        button.setImage(image, for: .normal)
+        return button
     }()
     
-    private lazy var characterCarousel: UITableView = {
-        let tableView = UITableView()
-        tableView.register(HomeCell.self, forCellReuseIdentifier: "HomeCell")
-        tableView.rowHeight = 70
-        //tableView.rowHeight = 200
-        tableView.backgroundColor = Color.darkBlue
-        tableView.separatorColor = Color.lightBlue
-        return tableView
+    private lazy var productsCarousel: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 100, height: 100)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(HomeCell.self, forCellWithReuseIdentifier: "HomeCell")
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.backgroundColor = .clear
+        return collectionView
     }()
     
     //MARK: - Initializer
@@ -61,17 +57,14 @@ final class HomeView: UIView, ViewCode {
     //MARK: - Methods
     
     private func register(viewOwner: ViewOwner) {
-        characterCarousel.dataSource = viewOwner
-        characterCarousel.delegate = viewOwner
-        
-        filterCarousel.dataSource = viewOwner
-        filterCarousel.delegate = viewOwner
+        productsCarousel.dataSource = viewOwner
+        productsCarousel.delegate = viewOwner
     }
     
     func build() {
         addSubview(titleLabel)
-        addSubview(filterCarousel)
-        addSubview(characterCarousel)
+        addSubview(saleButton)
+        addSubview(productsCarousel)
         
         self.backgroundColor = Color.darkBlue
     }
@@ -86,19 +79,17 @@ final class HomeView: UIView, ViewCode {
             title.top == view.topMargin
             title.leading == view.leadingMargin
         }
-
-        constrain(filterCarousel, titleLabel, self) { collectionView, titleLabel, view in
+        
+        constrain(titleLabel, saleButton, self) { title, button, view in
+            button.top == title.bottom - 20
+            button.trailing == view.trailing - 20
+        }
+        
+        constrain(productsCarousel, saleButton, self) { collectionView, button, view in
             collectionView.leading == view.leading
             collectionView.trailing == view.trailing
-            collectionView.height == 40
-            collectionView.top == titleLabel.bottom + 10
-        }
-
-        constrain(characterCarousel, filterCarousel, self) { tableView, filter, view in
-            tableView.leading == view.leading
-            tableView.trailing == view.trailing
-            tableView.bottom == view.bottom
-            tableView.top == filter.bottom + 10
+            collectionView.bottom == view.bottom
+            collectionView.top == button.bottom + 20
         }
     }
 }

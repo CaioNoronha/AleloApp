@@ -16,7 +16,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             
-            let main = HomeViewController()
+            //Initializations
+            let network = NetworkManager()
+            let worker = HomeWorker(network: network)
+            let presenter = HomePresenter()
+            let interactor = HomeInteractor(worker: worker, presenter: presenter)
+            
+            let main = HomeViewController(interactor: interactor)
             window.rootViewController = UINavigationController(rootViewController: main)
             
             self.window = window
